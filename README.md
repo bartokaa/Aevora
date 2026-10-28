@@ -14,7 +14,7 @@ Un projet de logiciel de fonds d'écran animés pour Windows.
 ![V4.1](https://img.shields.io/badge/Next%20version-V4.1-7657D5?style=flat-square)
 ![Release](https://img.shields.io/badge/Public%20release-Not%20available-gray?style=flat-square)
 
-[Présentation](#about) · [Avancement](#development) · [Roadmap](#roadmap) · [Français](#français)
+[About](#about) · [Development](#development) · [Roadmap](#roadmap) · [Français](#français)
 
 </div>
 
@@ -24,9 +24,9 @@ Un projet de logiciel de fonds d'écran animés pour Windows.
 
 Aevora is a project I'm working on to create an animated wallpaper application for Windows.
 
-I'm building the engine in C++ and using native Windows technologies for video playback and desktop integration.
+I'm building the engine in C++ using native Windows technologies for video playback and desktop integration.
 
-The V4 engine is functional, and I've tested it and made a verified backup before moving on to V4.1.
+The V4 engine is functional. I've tested it and made a verified backup before moving on to V4.1.
 
 The project is still in development, and there isn't a public release yet.
 
@@ -57,11 +57,11 @@ The main engine is working and has been tested.
 <details>
 <summary><strong>Known issues</strong></summary>
 
-These are the remaining issues and improvements I've identified.
+These are the issues I've identified that still need attention.
 
 - [ ] Fix the loop retry counter, which currently resets and can repeatedly display attempt 1/3.
 - [ ] Implement the Fit and Stretch scaling modes. The current rendering behaves like Fill.
-- [ ] Investigate two remaining D3D11 device references at shutdown.
+- [ ] Investigate the two remaining D3D11 device references at shutdown.
 - [ ] Add keyframe detection if precise video seeking becomes necessary.
 - [ ] Improve Visual Studio Build Tools detection instead of relying on a hard-coded path.
 
@@ -90,7 +90,7 @@ Here's what I plan to work on next.
 - [ ] Scan a local folder for videos.
 - [ ] Allow switching between wallpapers.
 - [ ] Add support for local playlists.
-- [ ] Explore local Steam Workshop content without Steamworks API integration for this phase.
+- [ ] Explore locally available Steam Workshop content without integrating the Steamworks API in this phase.
 
 </details>
 
@@ -108,7 +108,7 @@ Here's what I plan to work on next.
 <details>
 <summary><strong>04 — Other improvements</strong></summary>
 
-- [ ] Improve logging with different levels and automatic rotation.
+- [ ] Add log levels and automatic log rotation.
 - [ ] Add optional support for secondary monitors.
 - [ ] Test the new features.
 
@@ -128,7 +128,7 @@ Here's what I plan to work on next.
 | Wallpaper library | ⏳ Planned |
 | Configuration interface | ⏳ Planned |
 | Multi-monitor support | ⏳ Planned |
-| Public release | Not available yet |
+| Public release | ⏳ Not available yet |
 
 *I'll update this list as development moves forward.*
 
@@ -157,9 +157,9 @@ These are the main files I'll be working on for V4.1.
 
 **October 28, 2026**
 
-V4 is functional, tested and backed up. The backup contains 32 files verified to be identical to the original files, byte for byte.
+V4 is functional, tested and backed up. The backup contains 32 files verified to be identical to the originals, byte for byte.
 
-I'm now preparing the next development phase, V4.1.
+I'm now working towards the next development phase, V4.1.
 
 ## Current status
 
@@ -169,7 +169,7 @@ I'm now preparing the next development phase, V4.1.
 - **Development:** In progress
 - **Public release:** Not available yet
 
-This repository is for presenting the project and tracking its progress. The application source code and a public build aren't currently available here.
+This repository is for presenting the project and tracking its progress. The application's source code and a public build aren't available here at the moment.
 
 ---
 
@@ -179,7 +179,7 @@ This repository is for presenting the project and tracking its progress. The app
 
 Aevora est un projet de logiciel de fonds d'écran animés pour Windows sur lequel je travaille.
 
-Je développe le moteur en C++ en utilisant les technologies natives de Windows pour la lecture vidéo et l'intégration au bureau.
+Je développe le moteur en C++ avec les technologies natives de Windows pour la lecture vidéo et l'intégration au bureau.
 
 Le moteur V4 fonctionne. Je l'ai testé et j'ai créé une sauvegarde vérifiée avant de passer à la suite.
 
@@ -212,7 +212,7 @@ Le moteur principal fonctionne et a été testé.
 <details>
 <summary><strong>Problèmes connus</strong></summary>
 
-Voici les points que j'ai identifiés et qui restent à améliorer.
+Voici les problèmes que j'ai identifiés et qui restent à corriger ou à améliorer.
 
 - [ ] Corriger le compteur de tentatives de lecture en boucle, qui se réinitialise actuellement et peut toujours afficher tentative 1/3.
 - [ ] Implémenter correctement les modes Fit et Stretch. Le rendu actuel se comporte comme Fill.
@@ -245,7 +245,7 @@ Voici ce que je prévois de faire ensuite.
 - [ ] Scanner un dossier local pour trouver des vidéos.
 - [ ] Permettre de changer de fond d'écran.
 - [ ] Ajouter la gestion des playlists locales.
-- [ ] Explorer les contenus Steam Workshop disponibles localement, sans intégration à l'API Steamworks pour cette phase.
+- [ ] Explorer les contenus Steam Workshop disponibles localement, sans intégrer l'API Steamworks dans cette phase.
 
 </details>
 
@@ -263,7 +263,7 @@ Voici ce que je prévois de faire ensuite.
 <details>
 <summary><strong>04 — Autres améliorations</strong></summary>
 
-- [ ] Améliorer les logs avec plusieurs niveaux et une rotation automatique.
+- [ ] Ajouter plusieurs niveaux de logs et une rotation automatique.
 - [ ] Ajouter la prise en charge optionnelle des écrans secondaires.
 - [ ] Tester les nouvelles fonctionnalités.
 
@@ -283,7 +283,7 @@ Voici ce que je prévois de faire ensuite.
 | Bibliothèque de fonds d'écran | ⏳ Prévue |
 | Interface de configuration | ⏳ Prévue |
 | Multi-écrans | ⏳ Prévu |
-| Version publique | Pas encore disponible |
+| Version publique | ⏳ Pas encore disponible |
 
 *Je mettrai cette liste à jour au fur et à mesure de l'avancement.*
 
