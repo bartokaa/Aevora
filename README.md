@@ -1,21 +1,20 @@
  <div align="center">
 
-# A E V O R A
+# Aevora
 
-### Animated wallpapers. A more personal desktop.
+**Animated wallpapers for Windows**
 
-A native animated wallpaper project for Windows.
-
-<br>
-
-![Windows](https://img.shields.io/badge/PLATFORM-WINDOWS-1684D8?style=for-the-badge&logo=windows&logoColor=white)
-![Engine V4](https://img.shields.io/badge/ENGINE-V4%20FUNCTIONAL-27864B?style=for-the-badge)
-![Development](https://img.shields.io/badge/NEXT-V4.1-7657D5?style=for-the-badge)
-![Release](https://img.shields.io/badge/PUBLIC%20RELEASE-NOT%20AVAILABLE-555555?style=for-the-badge)
+Un projet de logiciel de fonds d'écran animés pour Windows.
 
 <br>
 
-[About](#about) · [Development](#development) · [Roadmap](#roadmap) · [Technical details](#technical-details) · [Français](#français)
+![Windows](https://img.shields.io/badge/Platform-Windows-0078D4?style=flat-square&logo=windows&logoColor=white)
+![C++17](https://img.shields.io/badge/C%2B%2B-17-00599C?style=flat-square&logo=cplusplus&logoColor=white)
+![V4](https://img.shields.io/badge/Engine-V4%20functional-2ea44f?style=flat-square)
+![V4.1](https://img.shields.io/badge/Next%20version-V4.1-7657D5?style=flat-square)
+![Release](https://img.shields.io/badge/Public%20release-Not%20available-gray?style=flat-square)
+
+[Présentation](#about) · [Avancement](#development) · [Roadmap](#roadmap) · [Français](#français)
 
 </div>
 
@@ -23,93 +22,48 @@ A native animated wallpaper project for Windows.
 
 ## About
 
-Aevora is an independent project exploring animated wallpapers through a native Windows application.
+Aevora is a project I'm working on to create an animated wallpaper application for Windows.
 
-The idea is simple: make the desktop feel more alive, without turning the experience into something complicated.
+I'm building the engine in C++ and using native Windows technologies for video playback and desktop integration.
 
-The project is built around a dedicated video engine and native Windows technologies. Its first major milestone, **V4, is functional**. The next phase focuses on improving reliability, adding configuration options, and building the foundations of a wallpaper library.
+The V4 engine is now functional. I've compiled and tested it, and I've made a verified backup before moving on to V4.1.
 
-> Aevora is currently under development. A public release is not available yet.
-
-## Project overview
-
-<div align="center">
-
-| Current milestone | Next phase | Public release |
-|:---:|:---:|:---:|
-| **V4** | **V4.1** | **Not available** |
-| <img src="https://img.shields.io/badge/CORE-FUNCTIONAL-27864B?style=flat-square" alt="Core functional" /> | <img src="https://img.shields.io/badge/IMPROVEMENTS-PLANNED-7657D5?style=flat-square" alt="Improvements planned" /> | <img src="https://img.shields.io/badge/STATUS-IN%20DEVELOPMENT-777777?style=flat-square" alt="In development" /> |
-
-</div>
-
-### What Aevora is being built around
-
-- **Native Windows integration** — designed to display animated content on the desktop.
-- **Video playback** — an engine built around Media Foundation and Direct3D 11.
-- **Reliability** — handling desktop changes and recovering from common interruptions.
-- **Personalisation** — future controls for video selection, scaling, looping and volume.
-- **Local content** — a planned library for managing wallpapers stored on the computer.
-
----
+The project is still in development, and there isn't a public release yet.
 
 ## Development
 
-<div align="center">
+### V4 — Engine
 
-### V4 — Core engine
+<img src="https://img.shields.io/badge/Status-Functional-2ea44f?style=for-the-badge" alt="V4 functional" />
 
-<img src="https://img.shields.io/badge/STATUS-FUNCTIONAL-27864B?style=for-the-badge" alt="V4 functional" />
+The main engine is working and has been tested.
 
-The initial engine requirements have been met. V4 has been compiled, tested and backed up.
-
-</div>
-
-### Implemented and tested
-
-| Capability | Status |
+| Feature | Status |
 |---|:---:|
 | MP4 / H.264 video playback | ✅ |
-| Media Foundation decoding pipeline | ✅ |
 | Hardware decoding when available | ✅ |
-| Pixel format negotiation and fallback handling | ✅ |
+| Video format handling and fallback | ✅ |
 | Automatic video looping | ✅ |
 | More than 10 consecutive loop cycles tested | ✅ |
-| Clean shutdown through `--stop` | ✅ |
+| Clean shutdown with `--stop` | ✅ |
 | Single-instance protection | ✅ |
-| Attachment to the Windows desktop | ✅ |
-| Recovery after Windows Explorer restarts | ✅ |
+| Windows desktop integration | ✅ |
+| Recovery after Explorer restarts | ✅ |
 | Session lock and unlock handling | ✅ |
-| Display resolution change handling | ✅ |
-| Periodic health checks and automatic recovery | ✅ |
-| Verified stable backup | ✅ |
+| Display resolution changes | ✅ |
+| Health checks every 5 seconds | ✅ |
+| Stable backup verified | ✅ |
 
 <details>
-<summary><strong>Engine details and known limitations</strong></summary>
+<summary><strong>Known issues</strong></summary>
 
-#### Video pipeline
+These are the remaining issues and improvements I've identified for the next versions.
 
-- Media Foundation Source Resolver, Media Source and Source Reader.
-- Video Processor MFT enabled for video processing.
-- DXVA2 / D3D11 hardware decoding when available.
-- RGB32 output negotiation and fallback handling for packed pixel formats.
-
-#### Playback and desktop integration
-
-- The video reader is recreated at the end of the video because seeking is unsupported with the current Video Processor MFT configuration.
-- The desktop attachment uses the Windows desktop window hierarchy.
-- Explorer restart recovery uses the `TaskbarCreated` notification and a reattachment procedure.
-- Display changes trigger swap-chain and DirectComposition target reconstruction.
-- Health checks run every five seconds.
-
-#### Remaining limitations
-
-- [ ] **Loop retry counter:** `m_loopRetries` is reset inside `RecreateReader()`, so the log can repeatedly report attempt 1/3.
-- [ ] **Scaling modes:** the current rendering stretches the texture, effectively behaving as Fill. Fit and Stretch need their intended rendering behavior implemented.
-- [ ] **D3D11 cleanup:** two device references remain at shutdown. Their exact ownership still needs investigation.
-- [ ] **Keyframe detection:** `isKeyFrame` is currently always false. This is only needed if precise seeking becomes a requirement.
-- [ ] **Build tools discovery:** `vcvarsall.bat` is currently found through a hard-coded path because `vswhere.exe` is unavailable.
-
-These limitations are documented for future work and do not change the current V4 milestone.
+- [ ] Fix the loop retry counter, which currently resets and can repeatedly display attempt 1/3.
+- [ ] Implement the Fit and Stretch scaling modes. The current rendering behaves like Fill.
+- [ ] Investigate two remaining D3D11 device references at shutdown.
+- [ ] Add keyframe detection if precise video seeking becomes necessary.
+- [ ] Improve Visual Studio Build Tools detection instead of relying on a hard-coded path.
 
 </details>
 
@@ -117,164 +71,105 @@ These limitations are documented for future work and do not change the current V
 
 ## Roadmap
 
-<div align="center">
+### V4.1 — What's next?
 
-### V4.1 — The next development phase
+Here's what I plan to work on next.
 
-Improvements to the engine, followed by the foundations of a configurable application.
+<details open>
+<summary><strong>01 — Engine improvements</strong></summary>
 
-</div>
+- [ ] Fix the loop retry counter.
+- [ ] Implement Fit, Fill and Stretch correctly.
+- [ ] Clean up the remaining D3D11 references.
 
-### 01 — Playback reliability
+</details>
 
-**Status:** Planned
+<details open>
+<summary><strong>02 — Wallpaper library</strong></summary>
 
-- [ ] Correct the loop retry counter.
-- [ ] Review recovery behavior and logging.
+- [ ] Scan a local folder for videos.
+- [ ] Allow switching between wallpapers.
+- [ ] Add support for local playlists.
+- [ ] Explore local Steam Workshop content, without a Steamworks API integration for this phase.
 
-### 02 — Scaling and rendering
+</details>
 
-**Status:** Planned
+<details open>
+<summary><strong>03 — Settings</strong></summary>
 
-- [ ] Implement the intended Fit behavior.
-- [ ] Implement the intended Stretch behavior.
-- [ ] Keep Fill as the fill-the-screen option.
-
-### 03 — Wallpaper library
-
-**Status:** Planned
-
-- [ ] Scan a local folder for video files.
-- [ ] Support selecting between multiple wallpapers.
-- [ ] Lay the groundwork for local playlists.
-- [ ] Explore local Steam Workshop content where accessible, without a Steamworks API integration in this phase.
-
-### 04 — Configuration interface
-
-**Status:** Planned
-
-- [ ] Select a wallpaper.
-- [ ] Choose the scaling mode.
+- [ ] Add a basic configuration interface.
+- [ ] Choose a wallpaper.
+- [ ] Change the scaling mode.
 - [ ] Enable or disable looping.
-- [ ] Configure volume.
+- [ ] Adjust the volume.
 
-### 05 — Logging
-
-**Status:** Planned
-
-- [ ] Add log levels.
-- [ ] Implement automatic log rotation.
-- [ ] Improve diagnostic messages.
-
-### 06 — Multiple monitors
-
-**Status:** Planned
-
-- [ ] Keep the primary monitor as the default.
-- [ ] Add optional support for secondary monitors.
-
-### 07 — Resource cleanup
-
-**Status:** Planned
-
-- [ ] Investigate the remaining D3D11 references.
-- [ ] Improve resource release during shutdown.
-
----
-
-## Milestone tracker
-
-This checklist is intended to evolve with the project. Completed items should reflect work that has actually been implemented and verified.
-
-| Milestone | Progress |
-|---|---|
-| V4 core engine | `COMPLETE` |
-| Video playback and looping | `COMPLETE` |
-| Desktop integration and recovery | `COMPLETE` |
-| Stable backup | `VERIFIED` |
-| V4.1 reliability improvements | `PLANNED` |
-| Rendering and scaling improvements | `PLANNED` |
-| Wallpaper library and configuration UI | `PLANNED` |
-| Multi-monitor support | `PLANNED` |
-| Public release | `NOT AVAILABLE` |
+</details>
 
 <details>
-<summary><strong>Release preparation checklist</strong></summary>
+<summary><strong>04 — Other improvements</strong></summary>
 
-- [ ] Complete and verify the V4.1 improvements.
-- [ ] Test different desktop and display configurations.
-- [ ] Finalise application configuration and error handling.
-- [ ] Prepare a distributable build.
-- [ ] Publish release information.
+- [ ] Improve logs with different levels and automatic rotation.
+- [ ] Add optional support for secondary monitors.
+- [ ] Finish testing the new features.
 
 </details>
 
 ---
 
-## Technical details
+## Progress
 
-<div align="center">
+| Milestone | Status |
+|---|---|
+| V4 engine | ✅ Functional |
+| Video playback and looping | ✅ Tested |
+| Desktop integration | ✅ Implemented |
+| Stable backup | ✅ Verified |
+| V4.1 improvements | 🔄 Planned |
+| Wallpaper library | ⏳ Planned |
+| Configuration interface | ⏳ Planned |
+| Multi-monitor support | ⏳ Planned |
+| Public release | Not available yet |
+
+*I'll update this list as development moves forward.*
+
+## Technologies
 
 | Component | Technology |
-|:---|:---|
+|---|---|
 | Language | C++17 |
 | Graphics | Direct3D 11 |
 | Desktop composition | DirectComposition |
 | Video playback | Media Foundation |
 | Platform | Windows |
 
-</div>
+## Project files
 
-### Project structure
+The main files I'll be working on for V4.1 are:
 
-The following files are key areas of the current development work.
-
-| File | Responsibility |
+| File | What it handles |
 |---|---|
-| `media_decoder.cpp` | Video decoding, looping and scaling |
-| `media_decoder.h` | Decoder definitions and rendering-related data |
-| `engine_v4.cpp` | Engine lifecycle, desktop integration and future application features |
-| `wallpaper_config.*` | Wallpaper configuration and future settings |
-
-### Development environment
-
-The current engine is developed and built on Windows. The V4 working directory and its stable backup are maintained separately.
-
-The application source code and a public distributable are **not provided through this presentation repository**.
-
----
+| `media_decoder.cpp` | Video playback, looping and scaling |
+| `media_decoder.h` | Decoder definitions and rendering data |
+| `engine_v4.cpp` | Engine and desktop integration |
+| `wallpaper_config.*` | Wallpaper settings |
 
 ## Latest update
 
-<div align="center">
+**October 28, 2026**
 
-**28 October 2026**
+V4 is functional, tested and backed up. The backup contains 32 files verified to be identical to the original files byte for byte.
 
-### V4 milestone reached
+I'm now preparing the next development phase, V4.1.
 
-</div>
+## Current status
 
-The V4 engine has been compiled and tested against its initial requirements. A stable backup has also been verified, with 32 files matching the source byte for byte.
+- **Engine:** V4 functional
+- **Next milestone:** V4.1
+- **Platform:** Windows
+- **Development:** In progress
+- **Public release:** Not available
 
-Development is now ready to move toward V4.1, beginning with smaller reliability and rendering improvements before expanding the application.
-
----
-
-## Project status at a glance
-
-<div align="center">
-
-| | |
-|:---|:---|
-| **Project** | Aevora |
-| **Category** | Animated wallpaper software |
-| **Platform** | Windows |
-| **Engine** | V4 — functional |
-| **Next milestone** | V4.1 |
-| **Development** | In progress |
-| **Public build** | Not available |
-
-</div>
+This repository is for presenting the project and tracking its progress. The application source code and a public build aren't currently available here.
 
 ---
 
@@ -282,93 +177,48 @@ Development is now ready to move toward V4.1, beginning with smaller reliability
 
 ## À propos
 
-Aevora est un projet de logiciel de fonds d'écran animés développé nativement pour Windows.
+Aevora est un projet de logiciel de fonds d'écran animés pour Windows sur lequel je travaille.
 
-L'idée est simple : rendre le bureau plus vivant, sans compliquer son utilisation.
+Je développe le moteur en C++ en utilisant les technologies natives de Windows pour la lecture vidéo et l'intégration au bureau.
 
-Le projet s'appuie sur un moteur vidéo dédié et sur les technologies natives de Windows. Le moteur V4 a atteint son premier jalon fonctionnel. La prochaine phase vise à améliorer sa fiabilité, à ajouter des options de configuration et à poser les bases d'une bibliothèque de fonds d'écran.
+Le moteur V4 fonctionne maintenant. Je l'ai compilé et testé, puis j'ai créé une sauvegarde vérifiée avant de passer à la suite.
 
-> Aevora est toujours en développement. Aucune version publique n'est disponible pour le moment.
+Le projet est toujours en développement et aucune version publique n'est disponible pour le moment.
 
-## Vue d'ensemble
+## Avancement
 
-<div align="center">
+### V4 — Moteur
 
-| Jalon actuel | Prochaine phase | Version publique |
-|:---:|:---:|:---:|
-| **V4** | **V4.1** | **Non disponible** |
-| <img src="https://img.shields.io/badge/COEUR-FONCTIONNEL-27864B?style=flat-square" alt="Cœur fonctionnel" /> | <img src="https://img.shields.io/badge/AMÉLIORATIONS-PRÉVUES-7657D5?style=flat-square" alt="Améliorations prévues" /> | <img src="https://img.shields.io/badge/ÉTAT-EN%20DÉVELOPPEMENT-777777?style=flat-square" alt="En développement" /> |
+<img src="https://img.shields.io/badge/État-Fonctionnel-2ea44f?style=for-the-badge" alt="V4 fonctionnel" />
 
-</div>
-
-### Les objectifs d'Aevora
-
-- **Intégration native à Windows** — afficher des contenus animés sur le bureau.
-- **Lecture vidéo** — un moteur basé sur Media Foundation et Direct3D 11.
-- **Fiabilité** — gérer les changements du bureau et récupérer après certaines interruptions.
-- **Personnalisation** — ajouter des réglages pour la vidéo, l'affichage, la boucle et le volume.
-- **Contenus locaux** — créer une bibliothèque de fonds d'écran stockés sur l'ordinateur.
-
----
-
-## Développement
-
-<div align="center">
-
-### V4 — Moteur principal
-
-<img src="https://img.shields.io/badge/ÉTAT-FONCTIONNEL-27864B?style=for-the-badge" alt="V4 fonctionnel" />
-
-Les exigences initiales du moteur sont satisfaites. La V4 a été compilée, testée et sauvegardée.
-
-</div>
-
-### Fonctionnalités implémentées et testées
+Le moteur principal fonctionne et a été testé.
 
 | Fonctionnalité | État |
 |---|:---:|
 | Lecture vidéo MP4 / H.264 | ✅ |
-| Pipeline de décodage Media Foundation | ✅ |
 | Décodage matériel si disponible | ✅ |
-| Négociation des formats et buffers de secours | ✅ |
+| Gestion des formats vidéo et solutions de secours | ✅ |
 | Lecture vidéo en boucle | ✅ |
 | Plus de 10 cycles consécutifs testés | ✅ |
 | Arrêt propre avec `--stop` | ✅ |
 | Protection contre les instances multiples | ✅ |
-| Attache au bureau Windows | ✅ |
+| Intégration au bureau Windows | ✅ |
 | Récupération après redémarrage d'Explorer | ✅ |
 | Gestion du verrouillage et déverrouillage de session | ✅ |
 | Gestion des changements de résolution | ✅ |
-| Vérifications périodiques et récupération automatique | ✅ |
+| Vérifications toutes les 5 secondes | ✅ |
 | Sauvegarde stable vérifiée | ✅ |
 
 <details>
-<summary><strong>Détails techniques et limitations connues</strong></summary>
+<summary><strong>Problèmes connus</strong></summary>
 
-#### Pipeline vidéo
+Voici les points que j'ai identifiés et qui restent à améliorer.
 
-- Media Foundation Source Resolver, Media Source et Source Reader.
-- Video Processor MFT activé pour le traitement vidéo.
-- Décodage matériel DXVA2 / D3D11 lorsqu'il est disponible.
-- Négociation de sortie RGB32 et gestion de secours pour les formats de pixels packés.
-
-#### Lecture et intégration au bureau
-
-- Le lecteur vidéo est recréé à la fin de la vidéo, car la recherche temporelle n'est pas prise en charge avec la configuration actuelle du Video Processor MFT.
-- L'attache au bureau repose sur la hiérarchie des fenêtres du bureau Windows.
-- La récupération après un redémarrage d'Explorer utilise la notification `TaskbarCreated`.
-- Les changements d'affichage déclenchent la reconstruction de la swap chain et de la cible DirectComposition.
-- Les vérifications de santé sont effectuées toutes les cinq secondes.
-
-#### Limitations restantes
-
-- [ ] **Compteur de tentatives :** `m_loopRetries` est remis à zéro dans `RecreateReader()`, ce qui peut répéter le message tentative 1/3.
-- [ ] **Modes d'affichage :** le rendu actuel étire la texture, ce qui correspond au comportement Fill. Fit et Stretch doivent encore être implémentés correctement.
-- [ ] **Nettoyage D3D11 :** deux références au périphérique subsistent à l'arrêt. Leur origine exacte reste à examiner.
-- [ ] **Détection des keyframes :** `isKeyFrame` vaut actuellement toujours false. Cette fonction ne sera nécessaire que si une recherche précise devient indispensable.
-- [ ] **Détection des outils de compilation :** `vcvarsall.bat` est actuellement trouvé via un chemin codé en dur, car `vswhere.exe` est absent.
-
-Ces limitations sont documentées pour les prochaines étapes et ne remettent pas en cause le jalon fonctionnel de V4.
+- [ ] Corriger le compteur de tentatives de lecture en boucle, qui se réinitialise actuellement et peut toujours afficher tentative 1/3.
+- [ ] Implémenter correctement les modes Fit et Stretch. Le rendu actuel se comporte comme Fill.
+- [ ] Examiner les deux références au périphérique D3D11 restantes à l'arrêt.
+- [ ] Ajouter la détection des keyframes si une recherche vidéo précise devient nécessaire.
+- [ ] Améliorer la détection des outils Visual Studio Build Tools pour éviter un chemin codé en dur.
 
 </details>
 
@@ -376,171 +226,110 @@ Ces limitations sont documentées pour les prochaines étapes et ne remettent pa
 
 ## Feuille de route
 
-<div align="center">
+### V4.1 — La suite
 
-### V4.1 — La prochaine phase
+Voici les prochaines étapes prévues.
 
-Améliorer le moteur, puis poser les bases d'une application configurable.
+<details open>
+<summary><strong>01 — Améliorations du moteur</strong></summary>
 
-</div>
+- [ ] Corriger le compteur de tentatives.
+- [ ] Implémenter correctement Fit, Fill et Stretch.
+- [ ] Nettoyer les références D3D11 restantes.
 
-### 01 — Fiabilité de la lecture
+</details>
 
-**État :** Prévu
+<details open>
+<summary><strong>02 — Bibliothèque de fonds d'écran</strong></summary>
 
-- [ ] Corriger le compteur de tentatives de lecture en boucle.
-- [ ] Examiner la récupération et les journaux.
+- [ ] Scanner un dossier local pour trouver des vidéos.
+- [ ] Permettre de changer de fond d'écran.
+- [ ] Ajouter la gestion de playlists locales.
+- [ ] Explorer les contenus Steam Workshop disponibles localement, sans intégration à l'API Steamworks pour cette phase.
 
-### 02 — Affichage et rendu
+</details>
 
-**État :** Prévu
+<details open>
+<summary><strong>03 — Paramètres</strong></summary>
 
-- [ ] Implémenter le comportement Fit.
-- [ ] Implémenter le comportement Stretch.
-- [ ] Conserver Fill comme option de remplissage de l'écran.
-
-### 03 — Bibliothèque de fonds d'écran
-
-**État :** Prévu
-
-- [ ] Scanner un dossier local contenant des vidéos.
-- [ ] Permettre de choisir entre plusieurs fonds d'écran.
-- [ ] Préparer la gestion de playlists locales.
-- [ ] Explorer les contenus Steam Workshop accessibles localement, sans intégration à l'API Steamworks dans cette phase.
-
-### 04 — Interface de configuration
-
-**État :** Prévu
-
-- [ ] Sélectionner un fond d'écran.
-- [ ] Choisir le mode d'affichage.
+- [ ] Ajouter une interface de configuration simple.
+- [ ] Choisir un fond d'écran.
+- [ ] Changer le mode d'affichage.
 - [ ] Activer ou désactiver la boucle.
 - [ ] Régler le volume.
 
-### 05 — Journalisation
-
-**État :** Prévu
-
-- [ ] Ajouter des niveaux de logs.
-- [ ] Mettre en place la rotation automatique des journaux.
-- [ ] Améliorer les messages de diagnostic.
-
-### 06 — Multi-écrans
-
-**État :** Prévu
-
-- [ ] Conserver l'écran principal comme choix par défaut.
-- [ ] Ajouter la prise en charge optionnelle des écrans secondaires.
-
-### 07 — Nettoyage des ressources
-
-**État :** Prévu
-
-- [ ] Examiner les références D3D11 restantes.
-- [ ] Améliorer la libération des ressources à l'arrêt.
-
----
-
-## Suivi des jalons
-
-Cette liste doit évoluer avec le projet. Une tâche ne doit être cochée qu'une fois son implémentation vérifiée.
-
-| Jalon | Avancement |
-|---|---|
-| Moteur principal V4 | `TERMINÉ` |
-| Lecture vidéo et boucle | `TERMINÉ` |
-| Intégration au bureau et récupération | `TERMINÉ` |
-| Sauvegarde stable | `VÉRIFIÉE` |
-| Améliorations de fiabilité V4.1 | `PRÉVU` |
-| Améliorations du rendu et de l'affichage | `PRÉVU` |
-| Bibliothèque et interface de configuration | `PRÉVU` |
-| Prise en charge multi-écrans | `PRÉVU` |
-| Version publique | `NON DISPONIBLE` |
+</details>
 
 <details>
-<summary><strong>Liste de préparation de la sortie</strong></summary>
+<summary><strong>04 — Autres améliorations</strong></summary>
 
-- [ ] Terminer et vérifier les améliorations V4.1.
-- [ ] Tester différentes configurations de bureau et d'affichage.
-- [ ] Finaliser la configuration et la gestion des erreurs.
-- [ ] Préparer une version distribuable.
-- [ ] Publier les informations sur la sortie.
+- [ ] Améliorer les logs avec plusieurs niveaux et une rotation automatique.
+- [ ] Ajouter la prise en charge optionnelle des écrans secondaires.
+- [ ] Terminer les tests des nouvelles fonctionnalités.
 
 </details>
 
 ---
 
-## Détails techniques
+## Suivi de l'avancement
 
-<div align="center">
+| Étape | État |
+|---|---|
+| Moteur V4 | ✅ Fonctionnel |
+| Lecture vidéo et boucle | ✅ Testées |
+| Intégration au bureau | ✅ Implémentée |
+| Sauvegarde stable | ✅ Vérifiée |
+| Améliorations V4.1 | 🔄 Prévues |
+| Bibliothèque de fonds d'écran | ⏳ Prévue |
+| Interface de configuration | ⏳ Prévue |
+| Multi-écrans | ⏳ Prévu |
+| Version publique | Pas encore disponible |
+
+*Je mettrai cette liste à jour au fur et à mesure de l'avancement.*
+
+## Technologies
 
 | Composant | Technologie |
-|:---|:---|
+|---|---|
 | Langage | C++17 |
 | Graphismes | Direct3D 11 |
 | Composition du bureau | DirectComposition |
 | Lecture vidéo | Media Foundation |
 | Plateforme | Windows |
 
-</div>
+## Fichiers principaux
 
-### Fichiers principaux
+Les principaux fichiers sur lesquels je travaillerai pour V4.1 sont :
 
 | Fichier | Rôle |
 |---|---|
-| `media_decoder.cpp` | Décodage vidéo, boucle et affichage |
-| `media_decoder.h` | Définitions du décodeur et données liées au rendu |
-| `engine_v4.cpp` | Cycle de vie du moteur, intégration au bureau et futures fonctionnalités |
-| `wallpaper_config.*` | Configuration des fonds d'écran et futurs réglages |
-
-### Environnement de développement
-
-Le moteur actuel est développé et compilé sous Windows. Le répertoire de travail V4 et sa sauvegarde stable sont conservés séparément.
-
-Le code source de l'application et une version distribuable publique ne sont **pas fournis dans ce dépôt de présentation**.
-
----
+| `media_decoder.cpp` | Lecture vidéo, boucle et affichage |
+| `media_decoder.h` | Définitions du décodeur et données de rendu |
+| `engine_v4.cpp` | Moteur et intégration au bureau |
+| `wallpaper_config.*` | Paramètres des fonds d'écran |
 
 ## Dernière mise à jour
 
-<div align="center">
-
 **28 octobre 2026**
 
-### Premier jalon V4 atteint
+Le moteur V4 fonctionne, a été testé et sauvegardé. La sauvegarde contient 32 fichiers vérifiés identiques aux fichiers d'origine octet par octet.
 
-</div>
+Je prépare maintenant la prochaine phase du développement : V4.1.
 
-Le moteur V4 a été compilé et testé selon les exigences initiales. Une sauvegarde stable a également été vérifiée : les 32 fichiers correspondent octet par octet à la source.
+## État actuel
 
-Le développement peut maintenant passer à V4.1, en commençant par les améliorations de fiabilité et de rendu avant d'élargir les possibilités de l'application.
+- **Moteur :** V4 fonctionnel
+- **Prochaine étape :** V4.1
+- **Plateforme :** Windows
+- **Développement :** En cours
+- **Version publique :** Pas encore disponible
 
----
-
-## État du projet en bref
-
-<div align="center">
-
-| | |
-|:---|:---|
-| **Projet** | Aevora |
-| **Catégorie** | Logiciel de fonds d'écran animés |
-| **Plateforme** | Windows |
-| **Moteur** | V4 — fonctionnel |
-| **Prochain jalon** | V4.1 |
-| **Développement** | En cours |
-| **Version publique** | Non disponible |
-
-</div>
+Ce dépôt sert à présenter le projet et à suivre son avancement. Le code source de l'application et une version publique ne sont pas disponibles ici pour le moment.
 
 ---
 
 <div align="center">
 
-**Aevora**
-
-*Un bureau plus vivant, une étape à la fois.*
-
-<sub>Project in development · Projet en développement</sub>
+**Aevora** · Projet en développement
 
 </div>
