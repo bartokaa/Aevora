@@ -26,7 +26,7 @@ Aevora is a project I'm working on to create an animated wallpaper application f
 
 I'm building the engine in C++ and using native Windows technologies for video playback and desktop integration.
 
-The V4 engine is now functional. I've compiled and tested it, and I've made a verified backup before moving on to V4.1.
+The V4 engine is functional, and I've tested it and made a verified backup before moving on to V4.1.
 
 The project is still in development, and there isn't a public release yet.
 
@@ -39,7 +39,7 @@ The project is still in development, and there isn't a public release yet.
 The main engine is working and has been tested.
 
 | Feature | Status |
-|---|:---:|
+|:---|:---:|
 | MP4 / H.264 video playback | ✅ |
 | Hardware decoding when available | ✅ |
 | Video format handling and fallback | ✅ |
@@ -57,7 +57,7 @@ The main engine is working and has been tested.
 <details>
 <summary><strong>Known issues</strong></summary>
 
-These are the remaining issues and improvements I've identified for the next versions.
+These are the remaining issues and improvements I've identified.
 
 - [ ] Fix the loop retry counter, which currently resets and can repeatedly display attempt 1/3.
 - [ ] Implement the Fit and Stretch scaling modes. The current rendering behaves like Fill.
@@ -90,7 +90,7 @@ Here's what I plan to work on next.
 - [ ] Scan a local folder for videos.
 - [ ] Allow switching between wallpapers.
 - [ ] Add support for local playlists.
-- [ ] Explore local Steam Workshop content, without a Steamworks API integration for this phase.
+- [ ] Explore local Steam Workshop content without Steamworks API integration for this phase.
 
 </details>
 
@@ -108,9 +108,9 @@ Here's what I plan to work on next.
 <details>
 <summary><strong>04 — Other improvements</strong></summary>
 
-- [ ] Improve logs with different levels and automatic rotation.
+- [ ] Improve logging with different levels and automatic rotation.
 - [ ] Add optional support for secondary monitors.
-- [ ] Finish testing the new features.
+- [ ] Test the new features.
 
 </details>
 
@@ -119,7 +119,7 @@ Here's what I plan to work on next.
 ## Progress
 
 | Milestone | Status |
-|---|---|
+|:---|:---|
 | V4 engine | ✅ Functional |
 | Video playback and looping | ✅ Tested |
 | Desktop integration | ✅ Implemented |
@@ -135,7 +135,7 @@ Here's what I plan to work on next.
 ## Technologies
 
 | Component | Technology |
-|---|---|
+|:---|:---|
 | Language | C++17 |
 | Graphics | Direct3D 11 |
 | Desktop composition | DirectComposition |
@@ -144,10 +144,10 @@ Here's what I plan to work on next.
 
 ## Project files
 
-The main files I'll be working on for V4.1 are:
+These are the main files I'll be working on for V4.1.
 
 | File | What it handles |
-|---|---|
+|:---|:---|
 | `media_decoder.cpp` | Video playback, looping and scaling |
 | `media_decoder.h` | Decoder definitions and rendering data |
 | `engine_v4.cpp` | Engine and desktop integration |
@@ -157,7 +157,7 @@ The main files I'll be working on for V4.1 are:
 
 **October 28, 2026**
 
-V4 is functional, tested and backed up. The backup contains 32 files verified to be identical to the original files byte for byte.
+V4 is functional, tested and backed up. The backup contains 32 files verified to be identical to the original files, byte for byte.
 
 I'm now preparing the next development phase, V4.1.
 
@@ -167,7 +167,7 @@ I'm now preparing the next development phase, V4.1.
 - **Next milestone:** V4.1
 - **Platform:** Windows
 - **Development:** In progress
-- **Public release:** Not available
+- **Public release:** Not available yet
 
 This repository is for presenting the project and tracking its progress. The application source code and a public build aren't currently available here.
 
@@ -181,7 +181,7 @@ Aevora est un projet de logiciel de fonds d'écran animés pour Windows sur lequ
 
 Je développe le moteur en C++ en utilisant les technologies natives de Windows pour la lecture vidéo et l'intégration au bureau.
 
-Le moteur V4 fonctionne maintenant. Je l'ai compilé et testé, puis j'ai créé une sauvegarde vérifiée avant de passer à la suite.
+Le moteur V4 fonctionne. Je l'ai testé et j'ai créé une sauvegarde vérifiée avant de passer à la suite.
 
 Le projet est toujours en développement et aucune version publique n'est disponible pour le moment.
 
@@ -194,7 +194,7 @@ Le projet est toujours en développement et aucune version publique n'est dispon
 Le moteur principal fonctionne et a été testé.
 
 | Fonctionnalité | État |
-|---|:---:|
+|:---|:---:|
 | Lecture vidéo MP4 / H.264 | ✅ |
 | Décodage matériel si disponible | ✅ |
 | Gestion des formats vidéo et solutions de secours | ✅ |
@@ -204,7 +204,7 @@ Le moteur principal fonctionne et a été testé.
 | Protection contre les instances multiples | ✅ |
 | Intégration au bureau Windows | ✅ |
 | Récupération après redémarrage d'Explorer | ✅ |
-| Gestion du verrouillage et déverrouillage de session | ✅ |
+| Gestion du verrouillage et du déverrouillage de session | ✅ |
 | Gestion des changements de résolution | ✅ |
 | Vérifications toutes les 5 secondes | ✅ |
 | Sauvegarde stable vérifiée | ✅ |
@@ -228,7 +228,7 @@ Voici les points que j'ai identifiés et qui restent à améliorer.
 
 ### V4.1 — La suite
 
-Voici les prochaines étapes prévues.
+Voici ce que je prévois de faire ensuite.
 
 <details open>
 <summary><strong>01 — Améliorations du moteur</strong></summary>
@@ -244,7 +244,7 @@ Voici les prochaines étapes prévues.
 
 - [ ] Scanner un dossier local pour trouver des vidéos.
 - [ ] Permettre de changer de fond d'écran.
-- [ ] Ajouter la gestion de playlists locales.
+- [ ] Ajouter la gestion des playlists locales.
 - [ ] Explorer les contenus Steam Workshop disponibles localement, sans intégration à l'API Steamworks pour cette phase.
 
 </details>
@@ -255,7 +255,7 @@ Voici les prochaines étapes prévues.
 - [ ] Ajouter une interface de configuration simple.
 - [ ] Choisir un fond d'écran.
 - [ ] Changer le mode d'affichage.
-- [ ] Activer ou désactiver la boucle.
+- [ ] Activer ou désactiver la lecture en boucle.
 - [ ] Régler le volume.
 
 </details>
@@ -265,7 +265,7 @@ Voici les prochaines étapes prévues.
 
 - [ ] Améliorer les logs avec plusieurs niveaux et une rotation automatique.
 - [ ] Ajouter la prise en charge optionnelle des écrans secondaires.
-- [ ] Terminer les tests des nouvelles fonctionnalités.
+- [ ] Tester les nouvelles fonctionnalités.
 
 </details>
 
@@ -274,7 +274,7 @@ Voici les prochaines étapes prévues.
 ## Suivi de l'avancement
 
 | Étape | État |
-|---|---|
+|:---|:---|
 | Moteur V4 | ✅ Fonctionnel |
 | Lecture vidéo et boucle | ✅ Testées |
 | Intégration au bureau | ✅ Implémentée |
@@ -290,7 +290,7 @@ Voici les prochaines étapes prévues.
 ## Technologies
 
 | Composant | Technologie |
-|---|---|
+|:---|:---|
 | Langage | C++17 |
 | Graphismes | Direct3D 11 |
 | Composition du bureau | DirectComposition |
@@ -299,10 +299,10 @@ Voici les prochaines étapes prévues.
 
 ## Fichiers principaux
 
-Les principaux fichiers sur lesquels je travaillerai pour V4.1 sont :
+Voici les principaux fichiers sur lesquels je travaillerai pour V4.1.
 
 | Fichier | Rôle |
-|---|---|
+|:---|:---|
 | `media_decoder.cpp` | Lecture vidéo, boucle et affichage |
 | `media_decoder.h` | Définitions du décodeur et données de rendu |
 | `engine_v4.cpp` | Moteur et intégration au bureau |
@@ -312,7 +312,7 @@ Les principaux fichiers sur lesquels je travaillerai pour V4.1 sont :
 
 **28 octobre 2026**
 
-Le moteur V4 fonctionne, a été testé et sauvegardé. La sauvegarde contient 32 fichiers vérifiés identiques aux fichiers d'origine octet par octet.
+Le moteur V4 fonctionne, a été testé et sauvegardé. La sauvegarde contient 32 fichiers vérifiés identiques aux fichiers d'origine, octet par octet.
 
 Je prépare maintenant la prochaine phase du développement : V4.1.
 
