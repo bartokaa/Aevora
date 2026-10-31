@@ -26,7 +26,7 @@ Aevora is a project I'm working on to create an animated wallpaper application f
 
 I'm building the engine in C++ using native Windows technologies for video playback and desktop integration.
 
-The V4 engine is functional. I've tested it and made a verified backup before moving on to V4.1.
+The V4 engine is functional. It has been tested, its temporary diagnostics have been removed, and a new backup has been created before moving on to V4.1.
 
 The project is still in development, and there isn't a public release yet.
 
@@ -52,7 +52,9 @@ The main engine is working and has been tested.
 | Session lock and unlock handling | ✅ |
 | Display resolution changes | ✅ |
 | Health checks every 5 seconds | ✅ |
-| Stable backup verified | ✅ |
+| Temporary pixel diagnostics removed | ✅ |
+| Successful compilation after cleanup | ✅ |
+| Stable backup created and checked | ✅ |
 
 <details>
 <summary><strong>Known issues</strong></summary>
@@ -123,7 +125,9 @@ Here's what I plan to work on next.
 | V4 engine | ✅ Functional |
 | Video playback and looping | ✅ Tested |
 | Desktop integration | ✅ Implemented |
-| Stable backup | ✅ Verified |
+| Diagnostic cleanup | ✅ Completed |
+| Successful recompilation | ✅ Verified |
+| Stable backup | ✅ Created and checked |
 | V4.1 improvements | 🔄 Planned |
 | Wallpaper library | ⏳ Planned |
 | Configuration interface | ⏳ Planned |
@@ -155,11 +159,13 @@ These are the main files I'll be working on for V4.1.
 
 ## Latest update
 
-**October 28, 2026**
+**October 31, 2026**
 
-V4 is functional, tested and backed up. The backup contains 32 files verified to be identical to the originals, byte for byte.
+V4 is functional, compiled successfully and tested after the removal of temporary diagnostics.
 
-I'm now working towards the next development phase, V4.1.
+A new backup named `v4_stable_20261031` has been created. It contains 34 copied files, with the 7 essential project files checked against the originals for matching size and timestamp.
+
+Development is now moving towards the next phase: V4.1.
 
 ## Current status
 
@@ -181,7 +187,7 @@ Aevora est un projet de logiciel de fonds d'écran animés pour Windows sur lequ
 
 Je développe le moteur en C++ avec les technologies natives de Windows pour la lecture vidéo et l'intégration au bureau.
 
-Le moteur V4 fonctionne. Je l'ai testé et j'ai créé une sauvegarde vérifiée avant de passer à la suite.
+Le moteur V4 fonctionne. Il a été testé, les diagnostics temporaires ont été retirés et une nouvelle sauvegarde a été créée avant de passer à V4.1.
 
 Le projet est toujours en développement et aucune version publique n'est disponible pour le moment.
 
@@ -207,7 +213,9 @@ Le moteur principal fonctionne et a été testé.
 | Gestion du verrouillage et du déverrouillage de session | ✅ |
 | Gestion des changements de résolution | ✅ |
 | Vérifications toutes les 5 secondes | ✅ |
-| Sauvegarde stable vérifiée | ✅ |
+| Retrait des diagnostics temporaires | ✅ |
+| Recompilation réussie après nettoyage | ✅ |
+| Nouvelle sauvegarde créée et contrôlée | ✅ |
 
 <details>
 <summary><strong>Problèmes connus</strong></summary>
@@ -278,7 +286,9 @@ Voici ce que je prévois de faire ensuite.
 | Moteur V4 | ✅ Fonctionnel |
 | Lecture vidéo et boucle | ✅ Testées |
 | Intégration au bureau | ✅ Implémentée |
-| Sauvegarde stable | ✅ Vérifiée |
+| Nettoyage des diagnostics | ✅ Terminé |
+| Recompilation réussie | ✅ Vérifiée |
+| Nouvelle sauvegarde | ✅ Créée et contrôlée |
 | Améliorations V4.1 | 🔄 Prévues |
 | Bibliothèque de fonds d'écran | ⏳ Prévue |
 | Interface de configuration | ⏳ Prévue |
@@ -310,11 +320,13 @@ Voici les principaux fichiers sur lesquels je travaillerai pour V4.1.
 
 ## Dernière mise à jour
 
-**28 octobre 2026**
+**31 octobre 2026**
 
-Le moteur V4 fonctionne, a été testé et sauvegardé. La sauvegarde contient 32 fichiers vérifiés identiques aux fichiers d'origine, octet par octet.
+Le moteur V4 fonctionne, a été recompilé avec succès et testé après le retrait des diagnostics temporaires.
 
-Je prépare maintenant la prochaine phase du développement : V4.1.
+Une nouvelle sauvegarde nommée `v4_stable_20261031` a été créée. Elle contient 34 fichiers copiés, dont les 7 fichiers essentiels ont été comparés aux originaux pour vérifier leur taille et leur horodatage.
+
+Le développement se dirige maintenant vers la prochaine phase : V4.1.
 
 ## État actuel
 
